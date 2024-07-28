@@ -4,7 +4,7 @@
 }
 
 .left_container {
-    -fx-background-color: #FFFF;
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 10;
     -fx-effect: dropshadow(two-pass-box, #AAAAAA, 5, 0,0,4);
 }
@@ -12,7 +12,7 @@
 /* title/logo section  */
 .title_container {
     -fx-background-color: #FFFFFF;
-    -fx-background-radius: 20, 20, 0, 0;
+    -fx-background-radius: 20 20 0 0;
     -fx-alignment: top_center;
     -fx-padding: 10;
 
@@ -29,7 +29,7 @@
 
 /* Navigation section */
 .menu_container {
-    -fx-padding: 10, 10, 10, 20;
+    -fx-padding: 10 10 10 20;
     -fx-spacing: 20;
 
 }
@@ -72,7 +72,7 @@
     -fx-background-radius: 10;
     -fx-alignment: center;
     -fx-spacing: 10;
-    -fx-padding: 10, 0, 10, 0;
+    -fx-padding: 10 0 10 0;
 }
 
 .report_container Text {
