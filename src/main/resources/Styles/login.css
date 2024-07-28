@@ -1,0 +1,100 @@
+.login_container {
+    -fx-background-color: #EEEEEE;
+
+}
+
+/*Logo for login*/
+.login_logo_container {
+    -fx-background-color: #c1d7de;
+    -fx-alignment: center;
+}
+
+.login_logo_container Text{
+    -fx-font-size: 2em;
+    -fx-fill:  #0a546b;
+}
+
+.login_logo_container FontAwesomeIconView {
+    -fx-fill: #0a546b;
+}
+
+/* Account selector choice box*/
+
+
+.account_selector {
+    -fx-background-color: #ECF39E;
+}
+
+.account_selector .label {
+    -fx-text-fill :  #0a546b;
+    -fx-font-size: 1.15em;
+}
+
+.account_selector .arrow {
+    -fx-background-color: #0a546b;
+}
+
+#choice-box-popup-menu {
+    -fx-background-color: #ECF39E;
+}
+
+#choice-prompt-text {
+    -fx-font-weight: 400;
+}
+
+/* Login Form styles */
+.login_form_container {
+    -fx-spacing: 15;
+    -fx-alignment: top_left;
+    -fx-background-color: #c1d7de;
+    -fx-padding: 1em;
+}
+
+.login_form_container Label {
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+}
+
+.input_field {
+    -fx-background-color: #FFFFFF;
+    -fx-pref-height: 35;
+    -fx-font-size: 1.2em;
+}
+
+.login_form_container Button {
+    -fx-background-color: #0a546b;
+    -fx-text-fill: #FFFFFF;
+    -fx-pref-width: 350;
+    -fx-pref-height: 30;
+    -fx-font-size: 1.2em;
+}
+
+.login_form_container Button:hover {
+    -fx-cursor: hand;
+}
+
+.error_lbl {
+    -fx-text-fill: #FF0000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
