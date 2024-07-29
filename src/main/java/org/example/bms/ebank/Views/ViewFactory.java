@@ -22,9 +22,7 @@ public class ViewFactory {
             }catch (Exception e){
                 e.printStackTrace();
             }
-
         }
-
         return dashboardView;
     }
 
@@ -52,6 +50,10 @@ public class ViewFactory {
         stage.setScene(scene);
         stage.setTitle("E BANK");
         stage.show();
+    }
+
+    public void closeStage(Stage stage){
+        stage.close();
     }
 
 }
