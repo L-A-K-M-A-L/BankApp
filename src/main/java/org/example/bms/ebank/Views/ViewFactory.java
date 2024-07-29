@@ -1,26 +1,36 @@
 package org.example.bms.ebank.Views;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.example.bms.ebank.Controllers.Client.ClientController;
 
+import java.io.IOException;
+
 public class ViewFactory {
 
 //    Client view
+    private final StringProperty clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionView;
+    private AnchorPane accountsView;
 //    constructor
     public ViewFactory(){
+        this.clientSelectedMenuItem = new SimpleStringProperty("");
+    }
 
+    public StringProperty getClientSelectedMenuItem() {
+        return clientSelectedMenuItem;
     }
 
     public AnchorPane getDashboardView(){
         if(dashboardView == null){
             try {
                 dashboardView = new FXMLLoader(getClass().getResource("/Fxml/Client/Dashboard.fxml")).load();
-            }catch (Exception e){
+            }catch (IOException e){
                 e.printStackTrace();
             }
         }
@@ -31,11 +41,22 @@ public class ViewFactory {
         if(transactionView == null){
             try {
                 transactionView = new FXMLLoader(getClass().getResource("/Fxml/Client/Transaction.fxml")).load();
-            }catch (Exception e){
+            }catch (IOException e){
                 e.printStackTrace();
             }
         }
         return transactionView;
+    }
+
+    public AnchorPane getAccountsView(){
+        if(accountsView == null ){
+            try{
+                accountsView = new FXMLLoader(getClass().getResource("/Fxml/Client/Account.fxml")).load();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        return  accountsView;
     }
 
     public void showLoginWindow(){
