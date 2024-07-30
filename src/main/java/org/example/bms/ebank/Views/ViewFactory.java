@@ -1,28 +1,48 @@
 package org.example.bms.ebank.Views;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.example.bms.ebank.Controllers.Admin.AdminController;
 import org.example.bms.ebank.Controllers.Client.ClientController;
 
 import java.io.IOException;
+import java.security.PublicKey;
 
 public class ViewFactory {
-
+    private AccountType loginAccountType;
 //    Client view
-    private final StringProperty clientSelectedMenuItem;
+    private final ObjectProperty<ClientMenuOption> clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionView;
     private AnchorPane accountsView;
+
+//    Admin views
+    private final ObjectProperty<AdminMenuOption> adminSelectedMenuItem;
+    private AnchorPane createClientView;
+    private AnchorPane clientsView;
+    private AnchorPane depositView;
+
 //    constructor
     public ViewFactory(){
-        this.clientSelectedMenuItem = new SimpleStringProperty("");
+        this.loginAccountType = AccountType.CLIENT;
+        this.clientSelectedMenuItem = new SimpleObjectProperty<>();
+        this.adminSelectedMenuItem = new SimpleObjectProperty<>();
     }
 
-    public StringProperty getClientSelectedMenuItem() {
+    public AccountType getLoginAccountType(){
+        return loginAccountType;
+    }
+
+    public void setLoginAccountType(AccountType loginAccountType) {
+        this.loginAccountType = loginAccountType;
+    }
+
+    //    Client view
+    public ObjectProperty<ClientMenuOption> getClientSelectedMenuItem() {
         return clientSelectedMenuItem;
     }
 
@@ -59,17 +79,65 @@ public class ViewFactory {
         return  accountsView;
     }
 
-    public void showLoginWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
-        createStage(loader);
-    }
-
     public void showClientWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Client/Client.fxml"));
         ClientController clientController = new ClientController();
         loader.setController(clientController);
         createStage(loader);
     }
+// Admin view Section
+
+    public ObjectProperty<AdminMenuOption> getAdminSelectedMenuItem() {
+        return adminSelectedMenuItem;
+    }
+
+    public AnchorPane getDepositView() {
+        if (depositView == null ){
+            try {
+                depositView = new FXMLLoader(getClass().getResource("/Fxml/Admin/Deposit.fxml")).load();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
+        return depositView;
+    }
+
+    public AnchorPane getClientsView(){
+        if(clientsView == null ){
+            try{
+                clientsView = new FXMLLoader(getClass().getResource("/Fxml/Admin/Clients.fxml")).load();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return clientsView;
+    }
+
+    public AnchorPane getCreateClientView(){
+        if(createClientView == null){
+            try{
+                createClientView = new FXMLLoader(getClass().getResource("/Fxml/Admin/CreateClient.fxml")).load();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        return createClientView;
+    }
+
+
+    public  void showAdminWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.fxml"));
+        AdminController adminController = new AdminController();
+        loader.setController(adminController);
+        createStage(loader);
+    }
+
+    public void showLoginWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+        createStage(loader);
+    }
+
 
     private void createStage(FXMLLoader loader){
         Scene scene = null;

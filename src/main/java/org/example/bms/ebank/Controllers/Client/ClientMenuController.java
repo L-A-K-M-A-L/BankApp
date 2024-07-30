@@ -3,6 +3,7 @@ package org.example.bms.ebank.Controllers.Client;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import org.example.bms.ebank.Models.Model;
+import org.example.bms.ebank.Views.ClientMenuOption;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,15 +29,15 @@ public class ClientMenuController implements Initializable {
 
     private void onDashboard(){
 //        System.out.println("Dashboard button clicked");
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set("Dashboard");
+        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.DASHBOARD);
     }
 
     private void onTransaction() {
 //        System.out.println("Transaction button clicked");
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set("Transaction");
+        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.TRANSACTIONS);
     }
 
     private void onAccount(){
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set("Account");
+        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.ACCOUNTS);
     }
 }
